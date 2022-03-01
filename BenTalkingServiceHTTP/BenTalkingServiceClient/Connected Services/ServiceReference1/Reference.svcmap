@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="91a20971-a123-4178-a5d4-583f7cf414dc" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8080/BenTalkingService" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="BenTalkingService.wsdl" MetadataType="Wsdl" ID="ff357725-f358-4f3b-b5fb-ab4e507a08d5" SourceId="1" SourceUrl="http://localhost:8080/BenTalkingService?wsdl=wsdl0" />
+    <MetadataFile FileName="BenTalkingService.xsd" MetadataType="Schema" ID="7be62cf5-4f20-47cc-a982-aa06143e5b6a" SourceId="1" SourceUrl="http://localhost:8080/BenTalkingService?xsd=xsd1" />
+    <MetadataFile FileName="BenTalkingService1.wsdl" MetadataType="Wsdl" ID="bd029c25-889d-4466-9746-7bb814ae731c" SourceId="1" SourceUrl="http://localhost:8080/BenTalkingService?wsdl" />
+    <MetadataFile FileName="BenTalkingService1.xsd" MetadataType="Schema" ID="aa764ba1-56b4-44d4-8a1e-281e86ec4608" SourceId="1" SourceUrl="http://localhost:8080/BenTalkingService?xsd=xsd0" />
+    <MetadataFile FileName="BenTalkingService.disco" MetadataType="Disco" ID="5119ea8c-02d5-45f4-b821-8ccecb5cb65f" SourceId="1" SourceUrl="http://localhost:8080/BenTalkingService?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

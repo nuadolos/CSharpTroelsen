@@ -1,0 +1,51 @@
+﻿<Page x:Class="CognitionWPF.BaseFunctions.UsingMarkupXaml"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CognitionWPF.BaseFunctions"
+      xmlns:CorLib="clr-namespace:System;assembly=mscorlib"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Изучение разметки XAML">
+
+    <Grid Background="Beige">
+        <ScrollViewer>
+            <StackPanel>
+                <TextBlock Text="Сборка mscorlib в XAML"
+                           FontSize="26" FontWeight="Bold"
+                           HorizontalAlignment="Center"/>
+                <Label Content="{x:Static CorLib:Environment.OSVersion}"/>
+                <Label Content="{x:Static CorLib:Environment.MachineName}"/>
+                <Label Content="{x:Type Button}"/>
+                <Label Content="{x:Type CorLib:Int32}"/>
+
+                <ListBox Height="300">
+                    <ListBox.ItemsSource>
+                        <x:Array Type="CorLib:String">
+                            <CorLib:String>Текст</CorLib:String>
+                            <CorLib:String>представлен</CorLib:String>
+                            <CorLib:String>в виде</CorLib:String>
+                            <CorLib:String>массива</CorLib:String>
+                            <CorLib:String>строк</CorLib:String>
+                        </x:Array>
+                    </ListBox.ItemsSource>
+                </ListBox>
+
+                <StackPanel>
+                    <TextBlock Text="Размещение эл. управления с опред. размерами"
+                           FontSize="26" FontWeight="Bold"
+                           HorizontalAlignment="Center"/>
+                    <WrapPanel ItemHeight="50" ItemWidth="300">
+                        <ComboBox/>
+                        <ComboBox/>
+                        <ComboBox/>
+                        <Calendar/>
+                        <CalendarDayButton/>
+                        <CalendarButton/>
+                    </WrapPanel>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

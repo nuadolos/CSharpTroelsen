@@ -1,0 +1,29 @@
+﻿<Page x:Class="CognitionWPF.BaseFunctions.DepPropInAction"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CognitionWPF.BaseFunctions"
+      xmlns:uc="clr-namespace:CognitionWPF.CustomDependencyProp"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="DepPropInAction">
+
+    <Grid>
+        <StackPanel>
+            <uc:ShowNumberControl x:Name="Show" CurrentNumber="100">
+                <uc:ShowNumberControl.Triggers>
+                    <EventTrigger RoutedEvent="uc:ShowNumberControl.Loaded">
+                        <EventTrigger.Actions>
+                            <BeginStoryboard>
+                                <Storyboard TargetProperty="CurrentNumber">
+                                    <Int32Animation From="100" To="200" Duration="0:0:10"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger.Actions>
+                    </EventTrigger>
+                </uc:ShowNumberControl.Triggers>
+            </uc:ShowNumberControl>
+        </StackPanel>
+    </Grid>
+</Page>

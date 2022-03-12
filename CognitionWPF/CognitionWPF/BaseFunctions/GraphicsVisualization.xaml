@@ -1,0 +1,127 @@
+﻿<Page x:Class="CognitionWPF.BaseFunctions.GraphicsVisualization"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CognitionWPF.BaseFunctions"
+      xmlns:visual="clr-namespace:CognitionWPF.CustomVisualDrawing"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="GraphicsVisualization" Loaded="Page_Loaded">
+
+    <Grid>
+        <TabControl>
+            <TabItem Header="_Shape">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <ToolBar>
+                        <RadioButton GroupName="ShapeSelection"
+                         x:Name="EllipseOpt" Click="ShapeChanged">
+                            <Ellipse Fill="Green" Height="35" Width="35"/>
+                        </RadioButton>
+                        <RadioButton GroupName="ShapeSelection"
+                         x:Name="RectangleOpt" Click="ShapeChanged">
+                            <Rectangle Fill="Red" Height="35" Width="35"
+                           RadiusX="10" RadiusY="10"/>
+                        </RadioButton>
+                        <RadioButton GroupName="ShapeSelection"
+                         x:Name="LineOpt" Click="ShapeChanged">
+                            <Line Height="35" Width="35" StrokeThickness="10" Stroke="Blue"
+                      X1="10" Y1="10" X2="25" Y2="25"
+                      StrokeStartLineCap="Triangle" StrokeEndLineCap="Round"/>
+                        </RadioButton>
+                        <Button Content="Перевернуть"
+                    x:Name="RotateCanvasBtn" Click="RotateCanvasBtn_Click"/>
+                    </ToolBar>
+
+                    <Canvas Grid.Row="1" Background="LightBlue" ClipToBounds="True"
+                x:Name="CanvasDrawingArea"
+                PreviewMouseLeftButtonDown="CanvasDrawingArea_PreviewMouseLeftButtonDown"
+                MouseRightButtonDown="CanvasDrawingArea_MouseRightButtonDown">
+                        <Path Fill="Orange" Stroke="Blue" StrokeThickness="3"
+                  Canvas.Top="200" Canvas.Left="200">
+                            <Path.Data>
+                                <GeometryGroup>
+                                    <EllipseGeometry Center="75, 70" RadiusX="30" RadiusY="30"/>
+                                    <RectangleGeometry Rect="25, 55, 100, 30"/>
+                                    <LineGeometry StartPoint="0, 0" EndPoint="70, 30"/>
+                                    <LineGeometry StartPoint="70, 30" EndPoint="0, 30"/>
+                                </GeometryGroup>
+                            </Path.Data>
+                        </Path>
+                        <Path Stroke="Black" StrokeThickness="1"
+                  Data="M 10, 75 C 70, 15 250, 270 300, 175 H 240"
+                  Canvas.Top="150" Canvas.Left="400"/>
+                        <Rectangle Fill="Red" Height="50" Width="65"
+                       RadiusX="15" RadiusY="15"
+                       Canvas.Top="100" Canvas.Left="400">
+                            <Rectangle.LayoutTransform>
+                                <TransformGroup>
+                                    <SkewTransform AngleX="20" AngleY="20"/>
+                                    <RotateTransform Angle="-45"/>
+                                    <ScaleTransform ScaleX="0.5" ScaleY="2"/>
+                                </TransformGroup>
+                            </Rectangle.LayoutTransform>
+                        </Rectangle>
+                    </Canvas>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="_Drawing">
+                <Grid>
+                    <Grid.Background>
+                        <DrawingBrush>
+                            <DrawingBrush.Drawing>
+                                <GeometryDrawing Brush="Honeydew">
+                                    <GeometryDrawing.Geometry>
+                                        <GeometryGroup>
+                                            <RectangleGeometry Rect="50 50 60 30"/>
+                                        </GeometryGroup>
+                                    </GeometryDrawing.Geometry>
+                                    <GeometryDrawing.Pen>
+                                        <Pen Brush="Red" Thickness="0.3"/>
+                                    </GeometryDrawing.Pen>
+                                </GeometryDrawing>
+                            </DrawingBrush.Drawing>
+                        </DrawingBrush>
+                    </Grid.Background>
+                    <StackPanel>
+                        <Button/>
+                        <Button/>
+                        <Button/>
+                        <Image Width="300">
+                            <Image.Source>
+                                <DrawingImage>
+                                    <DrawingImage.Drawing>
+                                        <GeometryDrawing Brush="Yellow">
+                                            <GeometryDrawing.Geometry>
+                                                <GeometryGroup>
+                                                    <RectangleGeometry Rect="50 50 60 30"/>
+                                                    <EllipseGeometry Center="50 50" RadiusX="30" RadiusY="30"/>
+                                                    <LineGeometry StartPoint="50 50" EndPoint="72 70"/>
+                                                </GeometryGroup>
+                                            </GeometryDrawing.Geometry>
+                                            <GeometryDrawing.Pen>
+                                                <Pen Brush="Blue" Thickness="1"/>
+                                            </GeometryDrawing.Pen>
+                                        </GeometryDrawing>
+                                    </DrawingImage.Drawing>
+                                </DrawingImage>
+                            </Image.Source>
+                        </Image>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="_Visual">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Image x:Name="VisualNewImage"/>
+                    <visual:CustomVisualFrameworkElement MouseDown="CustomVisualFrameworkElement_MouseDown"/>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Page>

@@ -110,10 +110,13 @@ namespace CognitionWPF.BaseFunctions
 
         private void SetBindings()
         {
+            //Создание привязки данных
             Binding msgBtnBinding = new Binding();
             msgBtnBinding.Converter = new Converters.DoubleConverter();
             msgBtnBinding.Source = TestScrollBar;
             msgBtnBinding.Path = new PropertyPath("Value");
+
+            //Установить свойство зависимости
             MsgBtn.SetBinding(Button.ContentProperty, msgBtnBinding);
         }
 

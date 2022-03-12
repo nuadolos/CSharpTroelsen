@@ -24,6 +24,9 @@
                     </EventTrigger>
                 </uc:ShowNumberControl.Triggers>
             </uc:ShowNumberControl>
+
+            <Button Content="{Binding CurrentNumber, ElementName=Show}"
+                    Height="{Binding CurrentNumber, ElementName=Show}"/>
         </StackPanel>
     </Grid>
 </Page>

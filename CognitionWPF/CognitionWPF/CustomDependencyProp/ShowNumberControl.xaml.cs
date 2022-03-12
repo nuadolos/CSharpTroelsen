@@ -20,29 +20,29 @@ namespace CognitionWPF.CustomDependencyProp
     /// </summary>
     public partial class ShowNumberControl : UserControl
     {
-        //private int _currentNumber = 0;
 
-        //public int CurrentNumber
-        //{
-        //    get => _currentNumber;
-        //    set
-        //    {
-        //        _currentNumber = value;
-        //        numberDisplay.Content = CurrentNumber.ToString();
-        //    }
-        //}
-
+        /// <summary>
+        /// Свойство оболочки CLR, которое косвенно
+        /// возвращает и устанавливает значение с использованием методов
+        /// базового класса System.Windows.DependencyObject
+        /// </summary>
         public int CurrentNumber
         {
             get { return (int)GetValue(CurrentNumberProperty); }
             set { SetValue(CurrentNumberProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for CurrentNumber.  This enables animation, styling, binding, etc...
+        /// <summary>
+        /// Поле типа DependencyProperty, хранимое значение свойства CurrentNumber
+        /// </summary>
         public static readonly DependencyProperty CurrentNumberProperty =
+            //Метод регистрации объекта DependencyProperty с ссылкой на свойства CLR
             DependencyProperty.Register("CurrentNumber",
+                //Тип данных
                 typeof(int),
+                //Класс, которому принадлежит данное свойство
                 typeof(ShowNumberControl),
+                //Установка стандартного значения и реагирования на изменение свойства
                 new UIPropertyMetadata(100, 
                     new PropertyChangedCallback((depObj, args) =>
                     {
@@ -50,12 +50,12 @@ namespace CognitionWPF.CustomDependencyProp
                         Label label = c.numberDisplay;
                         label.Content = args.NewValue.ToString();
                     })),
+                //Проверка допустимого значения свойства
                 new ValidateValueCallback(value =>
                 {
                     int intNumber = Convert.ToInt32(value);
                     return intNumber >= 0 && intNumber <= 500;
                 }));
-
 
 
         public ShowNumberControl()

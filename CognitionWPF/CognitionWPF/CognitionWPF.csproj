@@ -83,6 +83,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="BaseFunctions\GraphicsVisualization.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="BaseFunctions\UsingMarkupXaml.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -112,6 +116,9 @@
     <Compile Include="BaseFunctions\EditorFileTxt.xaml.cs">
       <DependentUpon>EditorFileTxt.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BaseFunctions\GraphicsVisualization.xaml.cs">
+      <DependentUpon>GraphicsVisualization.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BaseFunctions\UsingMarkupXaml.xaml.cs">
       <DependentUpon>UsingMarkupXaml.xaml</DependentUpon>
     </Compile>
@@ -119,6 +126,7 @@
     <Compile Include="CustomDependencyProp\ShowNumberControl.xaml.cs">
       <DependentUpon>ShowNumberControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CustomVisualDrawing\CustomVisualFrameworkElement.cs" />
     <Compile Include="MenuApp\ExamplesMenu.xaml.cs">
       <DependentUpon>ExamplesMenu.xaml</DependentUpon>
     </Compile>

@@ -22,7 +22,7 @@ namespace CognitionWPF
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            Application.Current.Properties["AdminRights"] = false;
+            //Application.Current.Properties["AdminRights"] = false;
 
             //foreach (string arg in e.Args)
             //{

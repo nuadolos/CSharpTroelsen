@@ -208,7 +208,7 @@ namespace CognitionWPF.BaseFunctions
 
         #endregion
 
-        #region Конвертация текста в байты и наоборот
+        #region Конвертация текста в двоичный код и наоборот
         
         private void ConvertTextToBinaryBtn_Click(object sender, RoutedEventArgs e)
         {

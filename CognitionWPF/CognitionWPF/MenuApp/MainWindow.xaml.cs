@@ -25,9 +25,11 @@ namespace CognitionWPF
         {
             InitializeComponent();
 
-            MainFrame.Navigate(new DepPropInAction());
+            MainFrame.Navigate(new GraphicsVisualization());
             NavigationFrame.MainFrame = MainFrame;
         }
+
+        #region Навигация к предыдущим страницам 
 
         private void MainFrame_ContentRendered(object sender, EventArgs e)
         {
@@ -41,6 +43,8 @@ namespace CognitionWPF
         {
             NavigationFrame.MainFrame.GoBack();
         }
+
+        #endregion
 
         #region Подтверждение выхода из приложения
 

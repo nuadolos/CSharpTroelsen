@@ -25,7 +25,7 @@ namespace CognitionWPF
         {
             InitializeComponent();
 
-            MainFrame.Navigate(new GraphicsVisualization());
+            MainFrame.Navigate(new BaseFunctions.ControlTemplate());
             NavigationFrame.MainFrame = MainFrame;
         }
 

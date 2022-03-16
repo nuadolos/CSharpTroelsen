@@ -75,6 +75,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="BaseFunctions\ControlTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="BaseFunctions\DepPropInAction.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -110,6 +114,9 @@
     <Compile Include="BaseFunctions\ControlsAndAPI.xaml.cs">
       <DependentUpon>ControlsAndAPI.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BaseFunctions\ControlTemplate.xaml.cs">
+      <DependentUpon>ControlTemplate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BaseFunctions\DepPropInAction.xaml.cs">
       <DependentUpon>DepPropInAction.xaml</DependentUpon>
     </Compile>
@@ -123,6 +130,7 @@
       <DependentUpon>UsingMarkupXaml.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\DoubleConverter.cs" />
+    <Compile Include="Converters\ThicknessConverter.cs" />
     <Compile Include="CustomDependencyProp\ShowNumberControl.xaml.cs">
       <DependentUpon>ShowNumberControl.xaml</DependentUpon>
     </Compile>
@@ -162,6 +170,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="TestImages\Y4GOPzG14Jk.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="TestImages\eiDHLrlmY8s.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="TestImages\radost%278.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CustomResourcesLibrary\CustomResourcesLibrary.csproj">
+      <Project>{26a05150-8047-4081-b934-388b967acede}</Project>
+      <Name>CustomResourcesLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="TestImages\U4WIYyb2ki4.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

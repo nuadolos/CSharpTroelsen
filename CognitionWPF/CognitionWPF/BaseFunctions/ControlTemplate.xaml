@@ -1,0 +1,182 @@
+﻿<Page x:Class="CognitionWPF.BaseFunctions.ControlTemplate"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CognitionWPF.BaseFunctions"
+      xmlns:converter="clr-namespace:CognitionWPF.Converters"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ControlTemplate" 
+      x:Name="AnimationPage" Loaded="AnimationPage_Loaded">
+    <Page.Resources>
+        <RadialGradientBrush x:Key="GradientBrushBorder">
+            <GradientStop Color="BlanchedAlmond" Offset="0"/>
+            <GradientStop Color="LavenderBlush" Offset="1"/>
+            <GradientStop Color="Violet" Offset="0.6"/>
+        </RadialGradientBrush>
+
+        <converter:ThicknessConverter x:Key="DogElementConvert"/>
+    </Page.Resources>
+
+    <Grid>
+        <TabControl>
+            <TabItem Header="_CustomTemplate">
+                <Grid>
+                    <TextBlock Text="Динамическое изменение стиля и представление собственного шаблона для Button"
+                                   HorizontalAlignment="Center" FontSize="24" FontStyle="Italic"
+                                   TextWrapping="Wrap" TextAlignment="Center"/>
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <WrapPanel HorizontalAlignment="Center">
+                            <TextBlock Text="Выбор стиля для кнопки:"
+                            FontSize="18" Margin="10" VerticalAlignment="Center"/>
+                            <ComboBox Style="{StaticResource BasicControlStyle}" VerticalAlignment="Center"
+                                x:Name="StylesCombo" SelectionChanged="StylesCombo_SelectionChanged">
+                                <ComboBoxItem Content="Standard"/>
+                                <ComboBoxItem Content="BasicControlStyle"/>
+                                <ComboBoxItem Content="AgressiveButton"/>
+                                <ComboBoxItem Content="NewTemplateButton"/>
+                            </ComboBox>
+                        </WrapPanel>
+
+                        <Button Content="Нажми на меня" Background="Bisque"
+                                x:Name="StyleBtn"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            
+            <TabItem Header="_StandardControl">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border BorderBrush="DarkSlateBlue" BorderThickness="3"
+                Margin="10">
+                        <StackPanel>
+                            <TextBlock Text="Enter Full Name of WPF Control" Margin="10,0"/>
+                            <TextBox Margin="10"
+                             x:Name="FullNameControlTBox"/>
+                            <Button Content="See Template"
+                            x:Name="TemplateBtn" Click="TemplateBtn_Click"/>
+                            <StackPanel x:Name="stackTemplatePanel"/>
+                        </StackPanel>
+                    </Border>
+
+                    <TextBox Grid.Column="1" Margin="10"
+                 ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                 ScrollViewer.VerticalScrollBarVisibility="Auto"
+                 x:Name="ResultTemplateTBox"/>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="_BitLogResources">
+                <Grid Background="Black">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+
+                    <Border BorderBrush="{StaticResource GradientBrushBorder}"
+                BorderThickness="6" Margin="10" Background="Black">
+                        <Image x:Name="Aboltus1"/>
+                    </Border>
+                    <Border Margin="10" Grid.Column="1"
+                    BorderBrush="{DynamicResource GradientBrushBorder}" BorderThickness="6">
+                        <Image x:Name="Aboltus2"/>
+                    </Border>
+                    <Border Margin="10" Grid.Column="2"
+                    BorderBrush="{StaticResource CustomBruhesBorder}" BorderThickness="6">
+                        <Image x:Name="Aboltus3"/>
+                    </Border>
+
+                    <WrapPanel Grid.Row="1" Grid.ColumnSpan="3"
+                   HorizontalAlignment="Center">
+                        <Button Width="auto" Content="Изменить цвет ресурса"
+                x:Name="ChangeColorBtn" Click="ChangeColorBtn_Click"/>
+                        <Button Width="{Binding ActualWidth, ElementName=ChangeColorBtn}"
+                    Content="Отмена изменений"
+                    x:Name="BackColorBtn" Click="BackColorBtn_Click"/>
+                    </WrapPanel>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="_Animation">
+                <Grid>
+                    <Ellipse HorizontalAlignment="Left" VerticalAlignment="Top"
+                 Stroke="Violet" StrokeThickness="2"
+                 x:Name="EllipseCatAnimation"
+                 Width="250" Height="250" RenderTransformOrigin="0.5,0.5">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/TestImages/eiDHLrlmY8s.jpg"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="TEST" FontFamily="Comic Sans MS"
+                       FontSize="30" TextAlignment="Center">
+                            <TextBlock.Foreground>
+                                <SolidColorBrush x:Name="DynamicColor" Color="Aqua"/>
+                            </TextBlock.Foreground>
+                            <TextBlock.Triggers>
+                                <EventTrigger RoutedEvent="TextBlock.Loaded">
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <StringAnimationUsingKeyFrames RepeatBehavior="Forever" Duration="0:0:5"
+                                                               Storyboard.TargetProperty="Text">
+                                                <DiscreteStringKeyFrame Value="Добро пожаловать" KeyTime="0:0:0"/>
+                                                <DiscreteStringKeyFrame Value="Сенпай" KeyTime="0:0:2"/>
+                                            </StringAnimationUsingKeyFrames>
+                                            <ColorAnimation RepeatBehavior="Forever" From="HotPink" To="MediumSpringGreen"
+                                                 Storyboard.TargetName="DynamicColor" Storyboard.TargetProperty="Color"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger>
+                            </TextBlock.Triggers>
+                        </TextBlock>
+                        <Ellipse Stroke="Violet" StrokeThickness="2"
+                 x:Name="EllipseGirlAnimation"
+                 Width="250" Height="250" RenderTransformOrigin="0.5,0.5">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="/TestImages/radost'8.jpg"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                    </StackPanel>
+                    <Ellipse HorizontalAlignment="Right" VerticalAlignment="Top"
+                 Stroke="Violet" StrokeThickness="2"
+                 x:Name="EllipseAynamiAnimation"
+                 Width="250" Height="250" RenderTransformOrigin="0.5,0.5">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/TestImages/Y4GOPzG14Jk.jpg"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+
+                    <Border HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                BorderBrush="{StaticResource CustomBruhesBorder}" BorderThickness="2"
+                Width="100" Height="100"
+                x:Name="BBB">
+                        <Image Source="/TestImages/U4WIYyb2ki4.jpg"/>
+                        <Border.Triggers>
+                            <EventTrigger RoutedEvent="Border.MouseEnter">
+                                <EventTrigger.Actions>
+                                    <BeginStoryboard>
+                                        <Storyboard TargetProperty="Margin">
+                                            <ThicknessAnimation From="0, 0, 0, 5" To="{Binding ActualWidth, Converter={StaticResource DogElementConvert}, ElementName=AnimationPage}"
+                                                    Duration="0:0:4" RepeatBehavior="Forever" AutoReverse="True">
+                                            </ThicknessAnimation>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </EventTrigger.Actions>
+                            </EventTrigger>
+                        </Border.Triggers>
+                    </Border>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Page>

@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CognitionWPF", "CognitionWPF\CognitionWPF.csproj", "{3B8DA9CF-5A0E-4748-8A71-F954EA25BFA2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomResourcesLibrary", "CustomResourcesLibrary\CustomResourcesLibrary.csproj", "{26A05150-8047-4081-B934-388B967ACEDE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{3B8DA9CF-5A0E-4748-8A71-F954EA25BFA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B8DA9CF-5A0E-4748-8A71-F954EA25BFA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B8DA9CF-5A0E-4748-8A71-F954EA25BFA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26A05150-8047-4081-B934-388B967ACEDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26A05150-8047-4081-B934-388B967ACEDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26A05150-8047-4081-B934-388B967ACEDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26A05150-8047-4081-B934-388B967ACEDE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

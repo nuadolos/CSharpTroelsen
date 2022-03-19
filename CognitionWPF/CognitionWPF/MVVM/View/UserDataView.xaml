@@ -1,0 +1,78 @@
+﻿<Page x:Class="CognitionWPF.MVVM.View.UserDataView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CognitionWPF.MVVM.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="UserDataView" DataContext="{Binding ViewModel, RelativeSource={RelativeSource Self}}">
+
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <WrapPanel>
+            <TextBlock Text="Пользователь:" Width="90" VerticalAlignment="Center"
+                       TextAlignment="Right" Margin="5"/>
+            <ComboBox Grid.Column="1" DisplayMemberPath="Fullname"
+                      Width="200" Height="30" Margin="5"
+                      ItemsSource="{Binding Users}"
+                      x:Name="UserCmb"/>
+        </WrapPanel>
+        
+        <StackPanel DataContext="{Binding SelectedItem,ElementName=UserCmb}"
+                    x:Name="DetailsPanel">
+            <WrapPanel>
+                <TextBlock Text="Логин:" Width="90" VerticalAlignment="Center"
+                       TextAlignment="Right" Margin="5"/>
+                <TextBox Text="{Binding Login, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}"
+                         Width="200" Height="30" Margin="5"/>
+            </WrapPanel>
+            <WrapPanel>
+                <TextBlock VerticalAlignment="Center"
+                       Text="Пароль:" Width="90"
+                       TextAlignment="Right" Margin="5"/>
+                <TextBox Grid.Row="1" Grid.Column="1" 
+                     Text="{Binding Password, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}" 
+                         Width="200" Height="30" Margin="5"/>
+            </WrapPanel>
+            <WrapPanel>
+                <TextBlock VerticalAlignment="Center"
+                       Text="Полное имя:" Width="90"
+                       TextAlignment="Right" Margin="5"/>
+                <TextBox Grid.Row="2" Grid.Column="1" 
+                     Text="{Binding Fullname, UpdateSourceTrigger=LostFocus, ValidatesOnDataErrors=True}"
+                         Width="200" Height="30" Margin="5"/>
+            </WrapPanel>
+
+            <WrapPanel>
+                <TextBlock Text="Изменено:" Width="90"
+                       TextAlignment="Right" Margin="5"/>
+                <CheckBox VerticalAlignment="Center" IsEnabled="False"
+                          IsChecked="{Binding IsChanged}"/>
+            </WrapPanel>
+
+            <WrapPanel HorizontalAlignment="Center">
+                <Button Content="Добавить" Width="75"
+                        x:Name="AddUserBtn" Command="{Binding DataContext.AddUserCmd, 
+                    RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Page}}}"
+                        CommandParameter="{Binding SelectedItem, ElementName=UserCmb}"/>
+                <Button Content="Удалить" Width="75"
+                        x:Name="DeleteUserBtn" Command="{Binding DataContext.DeleteUserCmd, 
+                    RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Page}}}"
+                        CommandParameter="{Binding SelectedItem, ElementName=UserCmb}"/>
+                <Button Content="Случайный пароль" Width="125"
+                        x:Name="RndPasswordBtn" Command="{Binding DataContext.RndPasswordCmd, 
+                    RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Page}}}"
+                        CommandParameter="{Binding SelectedItem, ElementName=UserCmb}"/>
+            </WrapPanel>
+
+            <ListView Height="150"
+                      ItemsSource="{Binding (Validation.Errors), ElementName=DetailsPanel}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ListBox ItemsSource="{Binding ErrorContent}"></ListBox>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+    </StackPanel>
+</Page>

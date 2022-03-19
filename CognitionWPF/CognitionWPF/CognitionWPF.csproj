@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\PropertyChanged.Fody.3.4.0\build\PropertyChanged.Fody.props" Condition="Exists('..\packages\PropertyChanged.Fody.3.4.0\build\PropertyChanged.Fody.props')" />
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -46,6 +47,9 @@
     </Reference>
     <Reference Include="ManufactureEFExample">
       <HintPath>..\..\CSharpTroelsen\EntityFrameworkMigration\ManufactureEFExample\ManufactureEFExample\bin\Debug\ManufactureEFExample.dll</HintPath>
+    </Reference>
+    <Reference Include="PropertyChanged, Version=3.4.0.0, Culture=neutral, PublicKeyToken=ee3ee20bcf148ddd, processorArchitecture=MSIL">
+      <HintPath>..\packages\PropertyChanged.Fody.3.4.0\lib\net40\PropertyChanged.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -131,6 +135,10 @@
     </Compile>
     <Compile Include="Converters\DoubleConverter.cs" />
     <Compile Include="Converters\ThicknessConverter.cs" />
+    <Compile Include="CustomCommand\RandomPasswordCommand.cs" />
+    <Compile Include="CustomCommand\CommandBase.cs" />
+    <Compile Include="CustomCommand\RelayCommands\RelayCommand.cs" />
+    <Compile Include="CustomCommand\RelayCommands\RelayCommandGeneric.cs" />
     <Compile Include="CustomDependencyProp\ShowNumberControl.xaml.cs">
       <DependentUpon>ShowNumberControl.xaml</DependentUpon>
     </Compile>
@@ -142,8 +150,20 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MVVM\View\UserDataView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MVVM\Model\Base\EntityBase.cs" />
+    <Compile Include="MVVM\Model\User.cs" />
+    <Compile Include="MVVM\Model\User.Validation.cs" />
+    <Compile Include="MVVM\Model\UserManual.cs" />
+    <Compile Include="MVVM\ViewModel\UserDataViewModel.cs" />
+    <Compile Include="MVVM\View\UserDataView.xaml.cs">
+      <DependentUpon>UserDataView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NavigationFrame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -189,6 +209,7 @@
   <ItemGroup>
     <Resource Include="TestImages\U4WIYyb2ki4.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>
@@ -204,6 +225,9 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Fody.6.5.1\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.6.5.1\build\Fody.targets'))" />
+    <Error Condition="!Exists('..\packages\PropertyChanged.Fody.3.4.0\build\PropertyChanged.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PropertyChanged.Fody.3.4.0\build\PropertyChanged.Fody.props'))" />
   </Target>
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\Fody.6.5.1\build\Fody.targets" Condition="Exists('..\packages\Fody.6.5.1\build\Fody.targets')" />
 </Project>

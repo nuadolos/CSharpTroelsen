@@ -1,4 +1,5 @@
 ﻿using CognitionWPF.BaseFunctions;
+using CognitionWPF.MVVM.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,7 @@ namespace CognitionWPF
         {
             InitializeComponent();
 
-            MainFrame.Navigate(new BaseFunctions.ControlTemplate());
+            MainFrame.Navigate(new UserDataView());
             NavigationFrame.MainFrame = MainFrame;
         }
 

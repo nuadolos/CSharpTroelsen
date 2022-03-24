@@ -1,0 +1,93 @@
+﻿@*Ожидаемый тип данных представления
+    С помощью кл. слова Model можно получить доступ к объекту*@
+@model IEnumerable<ManufactureEF.Entities.User>
+
+
+@using ManufactureEF.Entities
+@using ManufactureEF.Repos
+
+@*Метод для создания ListBox с ролями*@
+@helper ShowRoles()
+{
+    IList<Role> roles;
+
+    using (var roleCon = new RoleRepo())
+    {
+        roles = roleCon.GetAll();
+    }
+
+    var list = new SelectList(roles);
+    @Html.ListBox("banana", list)
+}
+
+@*Функция для сортировки пользователей*@
+@functions
+{
+    public IList<User> SortUsers(IList<User> users)
+    {
+        return (from us in users
+                orderby us.RoleId
+                select us).ToList();
+    }
+}
+
+@*Создание делегата для изменения текста в надстрочный*@
+@{
+    Func<dynamic, object> su = @<sup>@item</sup>;
+
+    //Аналогично
+    //ViewData["Title"] = "Список";
+    ViewBag.Title = "Список";
+}
+
+@*Делегат, изменяющий текст в надстрочный*@
+<h2>Список @su("пользователей")</h2>
+
+<p>
+    @Html.ActionLink("Создать", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Роль")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoginPassword)
+        </th>
+        <th>
+            @Html.DisplayName("ФИО")
+        </th>
+    </tr>
+
+    @*Вместо модели используется функция Razor*@
+    @foreach (var item in SortUsers(Model.ToList()))
+    {
+        @Html.DisplayFor(modelItem => item, "UserList")
+
+        #region Синтаксис Razor
+
+        //Можно использовать C#-код
+        //int x = 0;
+
+        //Использование x в разметке
+        @*<h9>x = @x</h9>*@
+
+        @*Многострочный комментарий*@
+
+        //@:Обычный текст
+
+        //Razor понимает как использовать @
+        @*<h8>testmail@gmail.com</h8>
+            <h8>testmail@(gmail).com</h8>*@
+
+        //Отмена знака @
+        //@@foo
+
+        @*<td>
+                Использование метода
+                @ShowRoles()
+        </td>*@
+
+        #endregion
+    }
+</table>

@@ -1,0 +1,30 @@
+﻿@model ManufactureEF.Entities.User
+
+@{
+    ViewBag.Title = "Редактирование";
+}
+
+<h2>Редактирование</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.Timestamp)
+    @Html.EditorForModel("User")
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Сохранить" class="btn btn-default" />
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Вернуться к списку", "Index")
+</div>
+
+@*Визуализация области в представление*@
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

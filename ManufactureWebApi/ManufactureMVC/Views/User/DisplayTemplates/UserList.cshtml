@@ -1,8 +1,21 @@
 ﻿@*Шаблон для отображения пользователей с помощью foreach*@
 @model ManufactureEF.Entities.User
 
+@using ManufactureEF.Entities
+@using ManufactureEF.Repos
+@functions
+{
+    public string RoleNameUser(User user)
+    {
+        using (RoleRepo _repo = new RoleRepo())
+        {
+            return _repo.GetOne(user.RoleId).Name;
+        }
+    }
+}
+
 <tr>
-    <td>@Html.DisplayFor(model => model.Role.Name)</td>
+    <td>@Html.DisplayName(RoleNameUser(Model))</td>
     <td>@Html.DisplayFor(model => model.LoginPassword)</td>
     <td>@Html.DisplayFor(model => model.Fullname)</td>
     <td>

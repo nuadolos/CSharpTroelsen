@@ -1,5 +1,18 @@
 ﻿@model ManufactureEF.Entities.User
 
+@using ManufactureEF.Entities
+@using ManufactureEF.Repos
+@functions
+{
+    public string RoleNameUser(User user)
+    {
+        using (RoleRepo _repo = new RoleRepo())
+        {
+            return _repo.GetOne(user.RoleId).Name;
+        }
+    }
+}
+
 @{
     ViewBag.Title = "Подробно";
 }
@@ -15,7 +28,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Role.Name)
+            @Html.DisplayName(RoleNameUser(Model))
         </dd>
 
         <dt>

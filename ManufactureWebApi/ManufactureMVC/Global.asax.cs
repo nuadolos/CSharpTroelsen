@@ -20,7 +20,7 @@ namespace ManufactureMVC
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             //Повторная инициализация базы данных
-            Database.SetInitializer(new Initializer());
+            //Database.SetInitializer(new Initializer());
         }
     }
 }

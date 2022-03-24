@@ -144,16 +144,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\ManufactureMVC\ManufactureEF.Entities\ManufactureEF.Entities.csproj">
-      <Project>{1e47bb00-4c78-4515-b8c6-e28705d3a509}</Project>
-      <Name>ManufactureEF.Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\ManufactureMVC\ManufactureEF\ManufactureEF.csproj">
-      <Project>{4f533177-f6d4-4db3-8b32-bb83f9cafd07}</Project>
-      <Name>ManufactureEF</Name>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -5,11 +5,11 @@ VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManufactureWebApi", "ManufactureWebApi\ManufactureWebApi.csproj", "{F1A47D43-80CC-49DA-BC7F-298A06189613}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManufactureEF.Entities", "..\ManufactureMVC\ManufactureEF.Entities\ManufactureEF.Entities.csproj", "{1E47BB00-4C78-4515-B8C6-E28705D3A509}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManufactureEF.Entities", "ManufactureEF.Entities\ManufactureEF.Entities.csproj", "{1E47BB00-4C78-4515-B8C6-E28705D3A509}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManufactureEF", "..\ManufactureMVC\ManufactureEF\ManufactureEF.csproj", "{4F533177-F6D4-4DB3-8B32-BB83F9CAFD07}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManufactureEF", "ManufactureEF\ManufactureEF.csproj", "{4F533177-F6D4-4DB3-8B32-BB83F9CAFD07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManufactureMVC", "..\ManufactureMVC\ManufactureMVC\ManufactureMVC.csproj", "{1B2253F9-AC99-441A-AECB-25609C57FB29}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManufactureMVC", "ManufactureMVC\ManufactureMVC.csproj", "{1B2253F9-AC99-441A-AECB-25609C57FB29}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

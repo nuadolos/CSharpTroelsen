@@ -1,0 +1,13 @@
+﻿@*Шаблон для отображения пользователей с помощью foreach*@
+@model ManufactureEF.Entities.User
+
+<tr>
+    <td>@Html.DisplayFor(model => model.Role.Name)</td>
+    <td>@Html.DisplayFor(model => model.LoginPassword)</td>
+    <td>@Html.DisplayFor(model => model.Fullname)</td>
+    <td>
+        @Html.ActionLink("Редактировать", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Подробно", "Details", new { id = Model.Id }) |
+        @Html.ActionLink("Удалить", "Delete", new { id = Model.Id })
+    </td>
+</tr>

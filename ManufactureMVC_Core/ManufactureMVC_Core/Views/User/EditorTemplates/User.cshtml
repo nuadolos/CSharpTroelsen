@@ -1,0 +1,43 @@
+﻿@using ManufactureEF.Entities
+@model User
+
+@*Использование собственного стиля для дескриптора <select>
+    Необходимо указать в атрибуте class*@
+<style>
+  .select {
+    padding: 10px;
+    width: 300px;
+    font-size:16px;
+    border: 1px solid teal;
+    border-bottom: 3px solid teal;
+  }
+</style>
+
+<h4>Пользователь</h4>
+<hr/>
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<div class="form-group mt-3">
+    <label asp-for="Login" class="control-label fs-4"></label>
+    <input asp-for="Login" class="form-control mt-2"/>
+    <span asp-validation-for="Login" class="text-danger"></span>
+</div>
+
+<div class="form-group mt-3">
+    <label asp-for="Password" class="control-label fs-4"></label>
+    <input asp-for="Password" class="form-control mt-2"/>
+    <span asp-validation-for="Password" class="text-danger"></span>
+</div>
+
+<div class="form-group mt-3">
+    <label asp-for="Fullname" class="control-label fs-4"></label>
+    <input asp-for="Fullname" class="form-control mt-2"/>
+    <span asp-validation-for="Fullname" class="text-danger"></span>
+</div>
+
+<div class="form-group mt-3">
+    <label asp-for="RoleId" class="control-label fs-4"></label>
+    <select asp-for="RoleId" asp-items="ViewBag.RoleId" class="select form-control mt-2"></select>
+    <span asp-validation-for="RoleId" class="text-danger"></span>
+</div>

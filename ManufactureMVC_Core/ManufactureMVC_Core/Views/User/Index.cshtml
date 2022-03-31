@@ -1,0 +1,15 @@
+﻿@using ManufactureEF.Entities
+@model IEnumerable<ManufactureEF.Entities.User>
+
+@{
+    ViewData["Title"] = "Список";
+}
+
+<h1>Список пользователей</h1>
+
+<p>
+    <a asp-action="Create">Создать</a>
+</p>
+
+@*Обращение к компоненту представления User*@
+@await Component.InvokeAsync("User")

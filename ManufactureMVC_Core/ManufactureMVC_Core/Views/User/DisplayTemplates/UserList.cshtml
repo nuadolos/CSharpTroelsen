@@ -1,0 +1,19 @@
+﻿@using ManufactureEF.Entities
+@model User
+
+<tr>
+    <td>
+        @Html.DisplayFor(model => model.LoginPassword)
+    </td>
+    <td>
+        @Html.DisplayFor(model => model.Fullname)
+    </td>
+    <td>
+        @Html.DisplayFor(model => model.Role.Name)
+    </td>
+    <td>
+        <a asp-action="Edit" asp-route-id="@Model.Id">Редактировать | </a>
+        <a asp-action="Details" asp-route-id="@Model.Id">Подробно | </a>
+        <a asp-action="Delete" asp-route-id="@Model.Id">Удалить</a>
+    </td>
+</tr>

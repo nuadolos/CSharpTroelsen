@@ -1,0 +1,35 @@
+﻿@using ManufactureEF.Entities
+@model IEnumerable<ManufactureEF.Entities.User>
+
+@{
+    ViewData["Title"] = "Список";
+}
+
+<h1>Список пользователей</h1>
+
+<p>
+    <a asp-action="Create">Создать</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <label>Логин | Пароль</label>
+            </th>
+            <th>
+                <label>ФИО</label>
+            </th>
+            <th>
+                <label>Роль</label>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) 
+{
+        @Html.DisplayFor(modelItem => item, "UserList")
+}
+    </tbody>
+</table>

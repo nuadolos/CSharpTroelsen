@@ -4,9 +4,9 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D3FCD219-2BCA-4524-81ED-55B0E2DFA87C}</ProjectGuid>
+    <ProjectGuid>{44656039-B282-4D8B-8304-B4898F900E10}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>SkillBoxCourseCSharp</RootNamespace>
+    <RootNamespace>CSharpLearning</RootNamespace>
     <AssemblyName>CSharpLearning</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -129,6 +129,8 @@
     <Compile Include="Interface\Product.cs" />
     <Compile Include="IO\Home.cs" />
     <Compile Include="IO\SerializeExample.cs" />
+    <Compile Include="Json_XML_Partial\JsonExample.cs" />
+    <Compile Include="Json_XML_Partial\XmlExample.cs" />
     <Compile Include="Library\LibraryExample.cs" />
     <Compile Include="LifetimeOfObjects\Directive.cs" />
     <Compile Include="LifetimeOfObjects\File.cs" />

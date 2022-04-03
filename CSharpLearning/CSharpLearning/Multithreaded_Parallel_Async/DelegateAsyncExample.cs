@@ -21,13 +21,13 @@ namespace SkillBoxCourseCSharp.Multithreaded_Parallel_Async
                 Thread.Sleep(6000);
             };
 
-            //Вызывабщий поток блокируется, пока не будет завершен BeginInvoke()
+            //Вызывающий поток блокируется, пока не будет завершен BeginInvoke()
             IAsyncResult result = mv.BeginInvoke("Асинхронный делегат выполнен!", new AsyncCallback(MessageComplete), "Параметр, поддерживающий object");
 
             //Поток снова доступен
             Console.WriteLine("Main продолжает работать");
 
-            //Ожидание выполнения MessageComlete и вызывающий поток не блокируется
+            //Ожидание выполнения MessageComplete и вызывающий поток не блокируется
             while(!result.IsCompleted)
             {
                 Console.WriteLine("Ожидается сообщение...");

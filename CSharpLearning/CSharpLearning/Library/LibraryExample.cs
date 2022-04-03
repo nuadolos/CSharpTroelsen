@@ -41,7 +41,7 @@ namespace SkillBoxCourseCSharp.Library
             LearnMaterial learn = new LearnMaterial(1, "Создание библиотек", DateTime.Now, true);
 
             Console.WriteLine($"Экземпляр класса LearnMaterial из библиотки TestLibrary имеет:\n" +
-                $"{learn.Name}\t{learn.StartDate.ToShortDateString()}\t{(learn.IsLearning ? "Изучается" : "Не изучается")}");
+                $"{learn.StartDate.ToShortDateString()}\t{(learn.IsLearning ? "Изучается" : "Не изучается")}");
 
             Console.WriteLine("\n\n\n");
             learn.DisplayFullInformation();
@@ -51,7 +51,7 @@ namespace SkillBoxCourseCSharp.Library
             learn.ResetLearn();
             Console.WriteLine("\n\n");
             Console.WriteLine($"Экземпляр класса LearnMaterial из библиотки TestLibrary имеет:\n" +
-                $"{learn.Name}\t{learn.StartDate.ToShortDateString()}\t{(learn.IsLearning ? "Изучается" : "Не изучается")}");
+                $"{learn.StartDate.ToShortDateString()}\t{(learn.IsLearning ? "Изучается" : "Не изучается")}");
         }
     }
 }

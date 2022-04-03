@@ -54,10 +54,5 @@ namespace SkillBoxCourseCSharp.EntityFramework
             FuncEF.RemoveUsers(ManufactureEntities.Context.User.Where(u => u.RoleId == 4 && u.Fullname != "Рговский Михаил"));
             FuncEF.PrintAllUsers();
         }
-
-        public static void Example()
-        {
-
-        }
     }
 }
